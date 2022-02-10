@@ -47,6 +47,9 @@ const vue = new Vue (
                     this.active++;
                 }
             },
+            clickSelect(indice) {
+                this.active = indice;
+            },
         }
     }
 )

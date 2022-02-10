@@ -28,12 +28,14 @@
 
 
         <div class="thumbs">
-
+            <!-- Collego funzioni per scorrere avanti o indietro in base alla freccia cliccata -->
             <div class="prev" @click="previous()"></div>
             <div class="next" @click="following()"></div>
             
+            <!-- Importo immagini attraverso v-for -->
             <div class="thumb" :class="indice == active?'active':''" v-for="(image, indice) in items">
-                <img :src="image.url" alt="">
+                <!-- Al click su una thumb visualizzo immagine corrispondente -->
+                <img @click="clickSelect(indice)" :src="image.url" alt="">
             </div> 
            
         </div>
