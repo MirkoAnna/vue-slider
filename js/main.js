@@ -3,6 +3,7 @@ const vue = new Vue (
         el: '#app',
         data: {
             active: 0,
+            interval: null,
 
             items: [
                 {
@@ -37,7 +38,7 @@ const vue = new Vue (
                 if(this.active <= 0) {
                     this.active = this.items.length - 1;
                 } else {
-                    this.active--
+                    this.active--;
                 }
             },
             following() {  
@@ -50,6 +51,15 @@ const vue = new Vue (
             clickSelect(indice) {
                 this.active = indice;
             },
+            autoPlay() {
+                this.interval = setInterval(() => {
+                    this.following();
+                }, 3000);
+            },
+            stopPlay() {
+                clearInterval(this.interval);
+                this.interval = null;
+            }
         }
     }
 )
